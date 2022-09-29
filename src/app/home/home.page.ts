@@ -11,6 +11,17 @@ import { ModalFormPage } from '../modal-form/modal-form.page';
 })
 export class HomePage {
   radio:string='biff';
+  columns:any[]=[
+    {name:"col-1",size:"12",sizem:"6",sezelg:"3",sizexl:"2"},
+    {name:"col-2",size:"12",sizem:"6",sezelg:"3",sizexl:"2"},
+    {name:"col-3",size:"12",sizem:"6",sezelg:"3",sizexl:"2"},
+    {name:"col-4",size:"12",sizem:"6",sezelg:"3",sizexl:"2"},
+    {name:"col-5",size:"12",sizem:"6",sezelg:"3",sizexl:"2"},
+    {name:"col-6",size:"12",sizem:"6",sezelg:"3",sizexl:"2"},
+    {name:"col-7",size:"12",sizem:"6",sezelg:"3",sizexl:"2"},
+    {name:"col-8",size:"12",sizem:"6",sezelg:"3",sizexl:"2"},
+  ];
+  list:string[]=['Super Mario World','Pokémon Yellow','Mega Man X','The Legend of Zelda','Super Mario World','Pokémon Yellow','Mega Man X','The Legend of Zelda','Super Mario World','Pokémon Yellow','Mega Man X','The Legend of Zelda','Super Mario World','Pokémon Yellow','Mega Man X','The Legend of Zelda'];
   constructor(private alertController: AlertController,private toastController: ToastController,private modalController: ModalController) {}
   async showAlert(){
     const options:AlertOptions={
