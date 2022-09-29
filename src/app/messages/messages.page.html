@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>messages</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="6" size-lg="3" size-xl="2">
+        <ion-button color="primary" shape="round" fill="clear" (click)="showAlert()">
+          <ion-icon slot="start" name="aperture-outline"></ion-icon>
+          Alert</ion-button>
+      </ion-col>
+      <ion-col size="12" size-sm="6" size-lg="3" size-xl="2">
+        <ion-button color="success" fill="outline" (click)="showToast('top')">
+          <ion-icon slot="end" name="aperture-outline"></ion-icon>
+          Toast top</ion-button>
+      </ion-col>
+      <ion-col size="12" size-sm="6" size-lg="3" size-xl="2">
+        <ion-button color="danger" size="small" (click)="showToast('middle')">Toast middle</ion-button>
+      </ion-col>
+      <ion-col size="12" size-sm="6" size-lg="3" size-xl="2">
+        <ion-button shape="round" color="warn" size="large" (click)="showToast('bottom')">Toast bottom</ion-button>
+      </ion-col>
+      <ion-col size="12" size-sm="6" size-lg="3" size-xl="2">
+        <ion-button id="open-modal">Open Modal HTML</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <p>{{ message }}</p>
+      </ion-col>
+    </ion-row>
+
+  <ion-row>
+    <ion-col size="10" offset="1">
+      <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="cancel()">Cancel</ion-button>
+              </ion-buttons>
+              <ion-title>Welcome</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <ion-item>
+              <ion-label position="stacked">Enter your name</ion-label>
+              <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
+            </ion-item>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+      <ion-button (click)="showModal()">Open Modal Page</ion-button>
+    </ion-col>
+    </ion-row>
+    </ion-grid>
+</ion-content>

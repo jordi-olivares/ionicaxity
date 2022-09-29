@@ -10,9 +10,22 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
-    path: 'modal-form',
-    loadChildren: () => import('./modal-form/modal-form.module').then( m => m.ModalFormPageModule)
+  },
+  //{
+  //  path: 'modal-form',
+  //  loadChildren: () => import('./modal-form/modal-form.module').then( m => m.ModalFormPageModule)
+  //},
+  {
+    path: 'messages',
+    loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
+  },
+  {
+    path: 'form',
+    loadChildren: () => import('./form/form.module').then( m => m.FormPageModule)
+  },
+  {
+    path: 'list',
+    loadChildren: () => import('./list/list.module').then( m => m.ListPageModule)
   },
 
 ];

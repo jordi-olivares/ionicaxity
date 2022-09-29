@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="list">
+    <ion-list>
+      <ion-item *ngFor="let item of list">
+        <ion-label>{{item}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of columns" size="12">
+        {{item.name}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
