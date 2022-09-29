@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { AlertController, AlertOptions, IonModal, ToastController, ToastOptions } from '@ionic/angular';
+import { AlertController, AlertOptions, IonModal, ModalController, ModalOptions, ToastController, ToastOptions } from '@ionic/angular';
 //import { listenerCount } from 'process';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { ModalFormPage } from '../modal-form/modal-form.page';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,8 @@ import { OverlayEventDetail } from '@ionic/core/components';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor(private alertController: AlertController,private toastController: ToastController) {}
+  radio:string='biff';
+  constructor(private alertController: AlertController,private toastController: ToastController,private modalController: ModalController) {}
   async showAlert(){
     const options:AlertOptions={
       header:'Cerrar Session',
@@ -46,6 +47,30 @@ export class HomePage {
     
     const toast=await this.toastController.create(options);
     toast.present();
+  }
+
+  async showModal(){
+    const options:ModalOptions={
+      component:ModalFormPage,
+      cssClass:'name-modal'
+    }
+    //forma sincrona
+    /*this.modalController.create(options).then(modalCtrl=>{
+      modalCtrl.present();
+      modalCtrl.onDidDismiss().then(ev=>{
+        if (ev.role === 'confirm') {
+          this.message = `Hello, ${ev.data}!`;
+        }
+      });
+    })*/
+    //forma asincrona
+    const modal=await this.modalController.create(options);
+    modal.present();
+    modal.onDidDismiss().then(ev=>{
+      if (ev.role === 'confirm') {
+        this.message = `Hello, ${ev.data}!`;
+      }
+    });
   }
 
   @ViewChild(IonModal) modal: IonModal;
