@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormPage implements OnInit {
   radio:string='biff';
-  constructor() { }
+  form: FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.form=this.fb.group({
+      username:['',Validators.compose([Validators.required,Validators.minLength(8)])],
+      password:['',Validators.compose([Validators.required,Validators.minLength(8)])]
+    });
+  }
 
   ngOnInit() {
+  }
+  login(){
+    console.log(this.form.value);
   }
 
 }

@@ -3,31 +3,19 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'tabs/home',
     pathMatch: 'full'
   },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+
   //{
   //  path: 'modal-form',
   //  loadChildren: () => import('./modal-form/modal-form.module').then( m => m.ModalFormPageModule)
   //},
-  {
-    path: 'messages',
-    loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
-  },
-  {
-    path: 'form',
-    loadChildren: () => import('./form/form.module').then( m => m.FormPageModule)
-  },
-  {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then( m => m.ListPageModule)
-  },
-
 ];
 
 @NgModule({

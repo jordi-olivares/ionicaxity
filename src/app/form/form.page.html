@@ -50,5 +50,9 @@
       </ion-col>
     </ion-row>
   </ion-grid>  
-
+  <form [formGroup]="form">
+    <ion-input placeholder="Usuario" formControlName="username"></ion-input>
+    <ion-input placeholder="contraseña" formControlName="password"></ion-input>
+    <ion-button (click)="login()" [disabled]="form.invalid">Ingresar</ion-button>
+  </form>
 </ion-content>
